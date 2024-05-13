@@ -1,6 +1,6 @@
-import dao.ProductDAO
+import dao.BibliotecaDAO
 import db_connection.DataSourceFactory
-import entity.Product
+import entity.Libro
 import output.Consola
 
 fun main() {
@@ -8,10 +8,10 @@ fun main() {
 
     val consola =Consola()
 
-    val product = Product(2, "Smartphone", 999.99f, "The latest smartphone model", "Apple", "Electronics")
+    val libro1 = Libro("Los campeones","Mario Tamayo",2024)
 
-    val productId = ProductDAO(dataSource).createProduct(product,consola)
+    val libro1Id=BibliotecaDAO(dataSource).createProduct(libro1,consola)
 
-    println("Product ID: $productId")
+    println(libro1Id)
 
 }

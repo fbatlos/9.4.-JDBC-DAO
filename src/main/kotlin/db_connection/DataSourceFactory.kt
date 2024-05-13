@@ -18,7 +18,7 @@ object DataSourceFactory {
         return when (dataSourceType) {
             DataSourceType.HIKARI -> {
                 val config = HikariConfig()
-                config.jdbcUrl = "jdbc:h2:file:C:\\Users\\Paco\\IdeaProjects\\9.3.-JDBC/default"
+                config.jdbcUrl = "jdbc:h2:./biblio"
                 config.username = "user"
                 config.password = "user"
                 config.driverClassName = "org.h2.Driver"
