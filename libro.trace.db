@@ -1,0 +1,21 @@
+2024-05-13 20:58:31.524000+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE [*]BIBLIOTECA(TITULO VARCHAR(250) ,AUTOR VARCHAR(250) , ANIOPUBLI INT  )"; se esperaba "OR REPLACE, FORCE, VIEW, MATERIALIZED, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL TEMPORARY, GLOBAL TEMPORARY, TEMPORARY, TABLE, SYNONYM, UNIQUE, SPATIAL, INDEX"
+Syntax error in SQL statement "CREATE [*]BIBLIOTECA(TITULO VARCHAR(250) ,AUTOR VARCHAR(250) , ANIOPUBLI INT  )"; expected "OR REPLACE, FORCE, VIEW, MATERIALIZED, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL TEMPORARY, GLOBAL TEMPORARY, TEMPORARY, TABLE, SYNONYM, UNIQUE, SPATIAL, INDEX"; SQL statement:
+CREATE BIBLIOTECA(TITULO VARCHAR(250) ,AUTOR VARCHAR(250) , ANIOPUBLI INT  ) [42001-224]
+2024-05-13 21:01:53.724526+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "TITULO , ANIOPUBLI" no encontrada
+Column "TITULO , ANIOPUBLI" not found [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3518)
+	at org.h2.jdbc.JdbcResultSet.getString(JdbcResultSet.java:301)
+	at com.zaxxer.hikari.pool.HikariProxyResultSet.getString(HikariProxyResultSet.java)
+	at dao.BibliotecaDAO.getAllLibros(BibliotecaDAO.kt:40)
+	at MainKt.main(Main.kt:15)
+	at MainKt.main(Main.kt)
+2024-05-13 21:35:22.988086+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT TITULO from BIBLIOTECA where AUTOR like [*]%(?)%"
+Syntax error in SQL statement "SELECT TITULO from BIBLIOTECA where AUTOR like [*]%(?)%"; SQL statement:
+SELECT TITULO from BIBLIOTECA where AUTOR like %(?)% [42000-224]

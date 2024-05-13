@@ -2,17 +2,31 @@ import dao.BibliotecaDAO
 import db_connection.DataSourceFactory
 import entity.Libro
 import output.Consola
+import service.UserServiceImpl
 
 fun main() {
     val dataSource = DataSourceFactory.getDS(DataSourceFactory.DataSourceType.HIKARI)
 
     val consola =Consola()
 
-    BibliotecaDAO(dataSource).createProduct(Libro("Los campeones","Mario Tamayo",2024),consola)
+    val bibliotecaDAO = BibliotecaDAO(dataSource)
+   // BibliotecaDAO(dataSource).createProduct(Libro("Los campeones","Mario Tamayo",2024),consola)
 
-    BibliotecaDAO(dataSource).createProduct(Libro("Prog","Jose Pepe",2000),consola)
+   // BibliotecaDAO(dataSource).createProduct(Libro("Prog","Jose Pepe",2000),consola)
 
-    BibliotecaDAO(dataSource).getAllLibros(consola)?.forEach { println(it) }
+    val services = UserServiceImpl(bibliotecaDAO,consola)
+
+    services.getAll()?.forEach { consola.showMenssage(it,true)  }
+
+    consola.showMenssage("----------------------------------",true)
+
+    services.getById("Los campeones")?.forEach { consola.showMenssage(it,true) }
+
+    consola.showMenssage("-----------------------------------------" ,true)
+
+    val borrado = services.delete("Los campeones","2024")
+
+    consola.showMenssage("tes",true)
 
 
 
