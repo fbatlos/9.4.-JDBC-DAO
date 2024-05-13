@@ -35,9 +35,9 @@ class BibliotecaDAO(private val dataSource: DataSource) : IBibliotecaDAO {
             val libros = mutableListOf<String>()
             dataSource.connection.use { conn ->
                 conn.createStatement().use { stmt ->
-                    stmt.executeQuery("SELECT * FROM biblioteca").use { rs ->
+                    stmt.executeQuery("SELECT TITULO FROM biblioteca").use { rs ->
                         while (rs.next()) {
-                            libros.add(rs.getString("*"))
+                            libros.add(rs.getString("TITULO"))
                         }
                     }
                 }
@@ -49,18 +49,5 @@ class BibliotecaDAO(private val dataSource: DataSource) : IBibliotecaDAO {
         }
     }
 
-    fun comprobar(): Boolean? {
-        val sql = "CREATE TABLE BIBLIOTECA (TITULO VARCHAR(255), AUTOR VARCHAR(255) , ANIOPUBLI INT )"
-        return try {
-            dataSource.connection.use { conn ->
-                conn.prepareStatement(sql)
-                true
-            }
-        }catch (e:Exception)
-        {
-            println("Algo no fue bien!! (${e.message})")
-            null
-        }
-    }
 }
 
