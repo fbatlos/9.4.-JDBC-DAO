@@ -1,6 +1,0 @@
-2024-05-13 11:53:33.951393+02:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "BIBLIOTECA" not found (this database is empty); SQL statement:
-INSERT INTO biblioteca (TITULO , AUTOR , ANIOPUBLI ) VALUES (?, ?, ?) [42104-224]
-2024-05-13 11:54:41.262800+02:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "BIBLIOTECA" not found (this database is empty); SQL statement:
-INSERT INTO biblioteca (TITULO , AUTOR , ANIOPUBLI ) VALUES (?, ?, ?) [42104-224]
