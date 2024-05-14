@@ -4,7 +4,7 @@ import entity.Libro
 import output.Consola
 import service.UserServiceImpl
 
-fun main() {
+fun main(args: Array<String>) {
     val dataSource = DataSourceFactory.getDS(DataSourceFactory.DataSourceType.HIKARI)
 
     val consola =Consola()
